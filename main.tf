@@ -4,7 +4,7 @@ resource "digitalocean_ssh_key" "onepassword" {
 }
 
 resource "digitalocean_droplet" "webserver" {
-	count = 10
+	count = 1
 	name = "webserver-${count.index + 1}"
 	image = "ubuntu-20-04-x64"
 	region = "lon1"
