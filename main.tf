@@ -1,5 +1,5 @@
-resource "digitalocean_ssh_key" "onepassword" {
-  name       = "1password"
+resource "digitalocean_ssh_key" "admin_key" {
+  name       = "webserver_admin_key"
   public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHjgkh0LyGVjWzYnCxrKC5dxQMHE3ky7s/vFpAyjfk5l"
 }
 
