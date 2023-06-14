@@ -1,5 +1,5 @@
 - name: Install Nginx on Ubuntu 20.04
-  hosts: all
+  hosts: webservers
 
   tasks:
     - name: Update APT Cache
