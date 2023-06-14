@@ -1,30 +1,25 @@
-- name: Install Nginx on Ubuntu 20.04
+- name: setup nginx single-page site on ubuntu
   hosts: webservers
 
   tasks:
-    - name: Update APT Cache
+    - name: update APT cache
       apt:
         update_cache: yes
     
-    - name: Install Nginx package
+    - name: install nginx
       apt:
         name: nginx
         state: present
         update_cache: yes
 
-    - name: Start Nginx service
-      ansible.builtin.service:
+    - name: start nginx service
+      service:
         name: nginx
         state: started
         enabled: yes
 
-    - name: Delete default Nginx index
-      file:
-        path: /var/www/html/index.nginx-debian.html
-        state: absent
-    
-    - name: Add Hello World index
-      lineinfile:
-        path: /var/www/html/index.nginx-debian.html
-        line: "Hello world"
-        create: yes
+    - name: upload index file
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        force: yes
