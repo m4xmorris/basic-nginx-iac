@@ -1,4 +1,4 @@
-output "ipv4_address" {
+output "webserver_ips" {
 	value = digitalocean_droplet.webserver[*].ipv4_address
 }
 
