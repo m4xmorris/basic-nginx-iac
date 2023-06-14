@@ -1,23 +1,23 @@
-- name: setup nginx single-page site on ubuntu
+- name: Setup Nginx single-page site on Ubuntu
   hosts: webservers
 
   tasks:
-    - name: update APT cache
+    - name: Update APT cache
       apt:
         update_cache: yes
     
-    - name: install nginx
+    - name: Ensure Nginx is installed 
       apt:
         name: nginx
         state: present
 
-    - name: start nginx service
+    - name: Ensure Nginx service is enabled
       service:
         name: nginx
         state: started
         enabled: yes
 
-    - name: upload index file
+    - name: Upload index file
       copy:
         src: ./index.html
         dest: /var/www/html/index.html
